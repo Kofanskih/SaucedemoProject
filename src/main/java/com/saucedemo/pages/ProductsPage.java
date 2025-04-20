@@ -10,6 +10,8 @@ public class ProductsPage {
     private SelenideElement productItem = $("[name=\"add-to-cart-sauce-labs-backpack\"]");
     private SelenideElement cartBadge = $("[data-test=\"shopping-cart-badge\"]");
     private SelenideElement removeButton = $("[id=\"remove-sauce-labs-backpack\"]");
+    private SelenideElement sortContainer = $("[data-test=\"product-sort-container\"]");
+    private SelenideElement actualSortOption = $("[data-test=\"active-option\"]");
 
     public ProductsPage userShouldHaveCartLinkOnProductsPage(String productsText){
         productsHeader.shouldHave(Condition.exactTextCaseSensitive(productsText));
@@ -32,5 +34,15 @@ public class ProductsPage {
 
     public void checkEmptyCountCartBadge(){
         cartBadge.shouldHave(Condition.hidden);
+    }
+
+    public ProductsPage sortItemsBySelectedOption(SelenideElement element){
+        sortContainer.click();
+        element.click();
+        return this;
+    }
+
+    public void checkSortingOption(String selectedElement){
+        actualSortOption.shouldHave(Condition.exactText(selectedElement));
     }
 }

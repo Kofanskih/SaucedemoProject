@@ -14,7 +14,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProductsTest {
     private String countOne = "1";
-    private String countZero = "0";
+    private SelenideElement descendingSort = $("[value=\"za\"]");
+    private String descendingOption = "Name (Z to A)";
+    private SelenideElement ascendingSort = $("[value=\"az\"]");
+    private String ascendingOption = "Name (A to Z)";
+    private SelenideElement priceLowToHighSort = $("[value=\"lohi\"]");
+    private String priceLowToHighOption = "Price (low to high)";
+
 
     @BeforeClass
     void preConditionClass(){
@@ -41,5 +47,26 @@ public class ProductsTest {
                 .userAddOneItemToCart()
                 .userRemoveOneAddedItemFromCartOnTheProductPage()
                 .checkEmptyCountCartBadge();
+    }
+
+    @Test
+    void userSelectDescendingSorting(){
+        new ProductsPage()
+                .sortItemsBySelectedOption(descendingSort)
+                .checkSortingOption(descendingOption);
+    }
+
+    @Test
+    void userSelectAscendingSorting(){
+        new ProductsPage()
+                .sortItemsBySelectedOption(ascendingSort)
+                .checkSortingOption(ascendingOption);
+    }
+
+    @Test
+    void userSelectPriceFromLowToHighSorting(){
+        new ProductsPage()
+                .sortItemsBySelectedOption(priceLowToHighSort)
+                .checkSortingOption(priceLowToHighOption);
     }
 }
