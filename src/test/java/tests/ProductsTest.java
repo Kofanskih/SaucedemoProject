@@ -13,7 +13,8 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ProductsTest {
-    private String countElement = "1";
+    private String countOne = "1";
+    private String countZero = "0";
 
     @BeforeClass
     void preConditionClass(){
@@ -30,6 +31,15 @@ public class ProductsTest {
     @Test
     void userAddItemToCart(){
         new ProductsPage()
-                .userAddItemToCart(countElement);
+                .userAddOneItemToCart()
+                .checkCountOfItemInTheCart(countOne);
+    }
+
+    @Test
+    void userRemoveAddedItemFromCartOnTheProductsPage(){
+        new ProductsPage()
+                .userAddOneItemToCart()
+                .userRemoveOneAddedItemFromCartOnTheProductPage()
+                .checkEmptyCountCartBadge();
     }
 }
