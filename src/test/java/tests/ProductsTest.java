@@ -20,6 +20,8 @@ public class ProductsTest {
     private String ascendingOption = "Name (A to Z)";
     private SelenideElement priceLowToHighSort = $("[value=\"lohi\"]");
     private String priceLowToHighOption = "Price (low to high)";
+    private SelenideElement priceHighToLowSort = $("[value=\"hilo\"]");
+    private String priceHighToLowOption = "Price (high to low)";
 
 
     @BeforeClass
@@ -37,14 +39,14 @@ public class ProductsTest {
     @Test
     void userAddItemToCart(){
         new ProductsPage()
-                .userAddOneItemToCart()
+                .userAddFirstItemToCart()
                 .checkCountOfItemInTheCart(countOne);
     }
 
     @Test
     void userRemoveAddedItemFromCartOnTheProductsPage(){
         new ProductsPage()
-                .userAddOneItemToCart()
+                //.userAddFirstItemToCart()
                 .userRemoveOneAddedItemFromCartOnTheProductPage()
                 .checkEmptyCountCartBadge();
     }
@@ -68,5 +70,12 @@ public class ProductsTest {
         new ProductsPage()
                 .sortItemsBySelectedOption(priceLowToHighSort)
                 .checkSortingOption(priceLowToHighOption);
+    }
+
+    @Test
+    void userSelectPriceFromHighToLowSorting(){
+        new ProductsPage()
+                .sortItemsBySelectedOption(priceHighToLowSort)
+                .checkSortingOption(priceHighToLowOption);
     }
 }

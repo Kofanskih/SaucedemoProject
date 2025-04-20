@@ -4,10 +4,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class ProductsPage {
     private SelenideElement productsHeader = $("[data-test=\"title\"]");
-    private SelenideElement productItem = $("[name=\"add-to-cart-sauce-labs-backpack\"]");
+    private SelenideElement productFirstItem = $x("//div[@class=\"inventory_item\"][1]//button[@class=\"btn btn_primary btn_small btn_inventory \"]");
     private SelenideElement cartBadge = $("[data-test=\"shopping-cart-badge\"]");
     private SelenideElement removeButton = $("[id=\"remove-sauce-labs-backpack\"]");
     private SelenideElement sortContainer = $("[data-test=\"product-sort-container\"]");
@@ -18,8 +19,8 @@ public class ProductsPage {
         return this;
     }
 
-    public ProductsPage userAddOneItemToCart(){
-        productItem.click();
+    public ProductsPage userAddFirstItemToCart(){
+        productFirstItem.click();
         return this;
     }
 
