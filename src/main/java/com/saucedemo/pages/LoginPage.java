@@ -13,7 +13,7 @@ public class LoginPage {
     private final SelenideElement loginButton = $("[id=\"login-button\"]");
     //private final SelenideElement warningMessage = $("[class=\"error-message-container error\"]");
     private final SelenideElement warningMessage = $x("//h3");
-    private SelenideElement loginContainer = $("[class=\"login_container\"]");
+    private SelenideElement loginLogo = $("[class=\"login_logo\"]");
 
     public ProductsPage fillLoginDataWithUserModel(UserLoginPageModel userLoginPageModel){
         userName.setValue(userLoginPageModel.getUserName());
@@ -27,7 +27,7 @@ public class LoginPage {
         return this;
     }
 
-    public void checkUserLogout(){
-        loginContainer.exists();
+    public void checkUserLogout(String logo){
+        loginLogo.shouldHave(Condition.exactText(logo));
     }
 }

@@ -13,6 +13,7 @@ public class HeaderTest {
     private String booleanFalse = "false";
     private String booleanTrue = "true";
     private String headerSaucelabs = "Build apps users love with AI-driven insights";
+    private String loginLogo = "Swag Labs";
 
     @BeforeClass
     void preConditionClass(){
@@ -46,6 +47,6 @@ public class HeaderTest {
         new HeaderPage()
                 .openSideBar()
                 .userLogout()
-                .checkUserLogout();
+                .checkUserLogout(loginLogo);
     }
 }
