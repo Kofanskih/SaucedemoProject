@@ -30,7 +30,7 @@ public class LoginTest {
     void userLogin(){
         new LoginPage()
                 .fillLoginDataWithUserModel(new UserLoginPageModel().userLogin());
-        new ProductsPage().userShouldHaveCartLinkOnProductsPage(productsHeader);
+        new ProductsPage().userShouldHaveHeaderOnProductsPage(productsHeader);
 
     }
 
