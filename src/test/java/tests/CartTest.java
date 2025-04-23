@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 public class CartTest {
     private String cartHeader = "Your Cart";
+    private String productsHeader = "Products";
 
     @BeforeClass
     void preConditionClass(){
@@ -38,5 +39,13 @@ public class CartTest {
                 .userGoToCart()
                 .userRemoveFirstItemFromCart()
                 .checkRemovedItem();
+    }
+
+    @Test
+    public void userGoToContinueShoppingFromCartPage(){
+        new ProductsPage()
+                .userGoToCart()
+                .userGoToContinueShopping()
+                .userShouldHaveHeaderOnProductsPage(productsHeader);
     }
 }

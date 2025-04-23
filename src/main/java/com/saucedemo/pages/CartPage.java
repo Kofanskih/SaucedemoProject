@@ -11,7 +11,7 @@ public class CartPage {
     private SelenideElement cartTitle = $("[data-test=\"title\"]");
     private SelenideElement removeButton = $("[class=\"btn btn_secondary btn_small cart_button\"]");
     private SelenideElement removedItem = $x("//div[@class=\"removed_cart_item\"]");
-    private SelenideElement continueShoppingButton = $("[name=\"continue-shopping\"]");
+    private SelenideElement continueShoppingButton = $x("//button[@name=\"continue-shopping\"]");
 
     public void checkUserOnTheCart(String cartHeader){
         cartTitle.shouldHave(Condition.exactText(cartHeader));
