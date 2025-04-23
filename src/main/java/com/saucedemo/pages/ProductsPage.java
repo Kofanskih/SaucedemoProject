@@ -2,6 +2,7 @@ package com.saucedemo.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import lombok.SneakyThrows;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -13,8 +14,9 @@ public class ProductsPage {
     private SelenideElement removeButton = $("[id=\"remove-sauce-labs-backpack\"]");
     private SelenideElement sortContainer = $("[data-test=\"product-sort-container\"]");
     private SelenideElement actualSortOption = $("[data-test=\"active-option\"]");
+    private SelenideElement shoppingCartButton = $("[class=\"shopping_cart_link\"]");
 
-    public ProductsPage userShouldHaveCartLinkOnProductsPage(String productsText){
+    public ProductsPage userShouldHaveHeaderOnProductsPage(String productsText){
         productsHeader.shouldHave(Condition.exactTextCaseSensitive(productsText));
         return this;
     }
@@ -46,4 +48,13 @@ public class ProductsPage {
     public void checkSortingOption(String selectedElement){
         actualSortOption.shouldHave(Condition.exactText(selectedElement));
     }
+
+    public CartPage userGoToCart(){
+        shoppingCartButton.click();
+        return new CartPage();
+    }
+
+
+
+
 }
