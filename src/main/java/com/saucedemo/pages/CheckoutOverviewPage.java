@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class CheckoutOverviewPage {
     private SelenideElement checkoutOverviewHeader = $x("//span[@data-test=\"title\"]");
     private SelenideElement cancelButton = $x("//button[@id=\"cancel\"]");
+    private SelenideElement finishButton = $x("//button[@id=\"finish\"]");
 
 
     public void checkUserGoToCheckoutOverview(String header) {
@@ -17,6 +18,11 @@ public class CheckoutOverviewPage {
     public ProductsPage userClickCancelButton(){
         cancelButton.click();
         return new ProductsPage();
+    }
+
+    public CheckoutCompletePage userFinishOrder(){
+        finishButton.click();
+        return new CheckoutCompletePage();
     }
 
 }
