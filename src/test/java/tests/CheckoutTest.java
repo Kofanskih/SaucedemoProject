@@ -26,28 +26,25 @@ public class CheckoutTest {
         new BasePage().open();
         new LoginPage()
                 .fillLoginDataWithUserModel(new UserLoginPageModel().userLogin());
-        new ProductsPage().userGoToCart();
+        new ProductsPage().userGoToCart().userGoToCheckout();
     }
 
     @Test
     public void userGoToCheckout(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .checkUserOnTheCheckoutPage(checkoutHeader);
     }
 
     @Test
     public void userCancelCheckout(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .userCancelCheckout()
                 .checkUserOnTheCart(cartHeader);
     }
 
     @Test
     public void userLeftEmptyFields(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .fillCheckoutInfo(new UserCheckoutPageModel().userEmptyData());
         new CheckoutPage()
                 .checkWarningMessageAfterFillIncorrectData(warningFirstName);
@@ -56,8 +53,7 @@ public class CheckoutTest {
 
     @Test
     public void userLeftFirstNameEmpty(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .fillCheckoutInfo(new UserCheckoutPageModel().userDataWithoutFirstName());
         new CheckoutPage()
                 .checkWarningMessageAfterFillIncorrectData(warningFirstName);
@@ -66,8 +62,7 @@ public class CheckoutTest {
 
     @Test
     public void userLeftLastNameEmpty(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .fillCheckoutInfo(new UserCheckoutPageModel().userDataWithoutLastName());
         new CheckoutPage()
                 .checkWarningMessageAfterFillIncorrectData(warningLastName);
@@ -75,8 +70,7 @@ public class CheckoutTest {
     }
     @Test
     public void userLeftPostalCodeEmpty(){
-        new CartPage()
-                .userGoToCheckout()
+        new CheckoutPage()
                 .fillCheckoutInfo(new UserCheckoutPageModel().userDataWithoutPostalCode());
         new CheckoutPage()
                 .checkWarningMessageAfterFillIncorrectData(warningPostalCode);
