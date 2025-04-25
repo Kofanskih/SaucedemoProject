@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 public class CheckoutOverviewTest {
     private String checkoutOverviewHeader = "Checkout: Overview";
     private String productsHeader = "Products";
+    private String thankYouHeader = "Thank you for your order!";
 
     @BeforeClass
     void preConditionClass(){
@@ -40,6 +41,16 @@ public class CheckoutOverviewTest {
         new CheckoutPage()
                 .fillCheckoutInfo(new UserCheckoutPageModel()
                         .fullUserData())
-                .userClickCancelButton().checkHeaderOnProductsPage(productsHeader);
+                .userClickCancelButton()
+                .checkHeaderOnProductsPage(productsHeader);
+    }
+
+    @Test
+    public void userFinishCheckout(){
+        new CheckoutPage()
+                .fillCheckoutInfo(new UserCheckoutPageModel()
+                        .fullUserData())
+                .userFinishOrder()
+                .checkUserCompleteCheckout(thankYouHeader);
     }
 }
