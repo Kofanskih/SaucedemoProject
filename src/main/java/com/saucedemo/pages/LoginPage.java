@@ -11,7 +11,6 @@ public class LoginPage {
     private final SelenideElement userName = $("[id=\"user-name\"]");
     private final SelenideElement password = $("[id=\"password\"]");
     private final SelenideElement loginButton = $("[id=\"login-button\"]");
-    //private final SelenideElement warningMessage = $("[class=\"error-message-container error\"]");
     private final SelenideElement warningMessage = $x("//h3");
     private SelenideElement loginLogo = $("[class=\"login_logo\"]");
 
