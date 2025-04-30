@@ -2,6 +2,7 @@ package com.saucedemo.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -15,6 +16,7 @@ public class ProductsPage {
     private SelenideElement actualSortOption = $("[data-test=\"active-option\"]");
     private SelenideElement shoppingCartButton = $("[class=\"shopping_cart_link\"]");
 
+    @Step("Check header on the Products page")
     public ProductsPage checkHeaderOnProductsPage(String productsText){
         productsHeader.shouldHave(Condition.exactTextCaseSensitive(productsText));
         return this;

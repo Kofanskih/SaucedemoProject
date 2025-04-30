@@ -3,6 +3,7 @@ package com.saucedemo.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.pageModels.UserLoginPageModel;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -14,6 +15,7 @@ public class LoginPage {
     private final SelenideElement warningMessage = $x("//h3");
     private SelenideElement loginLogo = $("[class=\"login_logo\"]");
 
+    @Step("Fill login data")
     public ProductsPage fillLoginDataWithUserModel(UserLoginPageModel userLoginPageModel){
         userName.setValue(userLoginPageModel.getUserName());
         password.setValue(userLoginPageModel.getUserPassword());
@@ -21,11 +23,13 @@ public class LoginPage {
         return new ProductsPage();
     }
 
+    @Step("Check warning message")
     public LoginPage checkWarningMessage(String warningMessageText){
         warningMessage.shouldHave(Condition.text(warningMessageText));
         return this;
     }
 
+    @Step("Check user logout")
     public void checkUserLogout(String logo){
         loginLogo.shouldHave(Condition.exactText(logo));
     }
