@@ -26,7 +26,7 @@ public class ProductsTest {
 
     @BeforeClass
     void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote("http://143.198.129.173");
+        new ConfigurateBrowserSettings().setUpRemote();
     }
 
     @BeforeMethod

@@ -12,4 +12,5 @@ public class BasePage {
         Selenide.open(readMainUrl());
         return new BasePage();
     }
+
 }

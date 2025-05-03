@@ -4,8 +4,11 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
 import org.openqa.selenium.MutableCapabilities;
 
+import static com.saucedemo.utils.OwnerReadUrl.ownerRemoteUrl;
+
 public class ConfigurateBrowserSettings {
     public final String URL_PATH = ":4444/wd/hub";
+    String remote = ownerRemoteUrl();
 
     @Step("Set up browser")
     public void setUp(){
@@ -15,8 +18,8 @@ public class ConfigurateBrowserSettings {
         Configuration.headless = true;
     }
 
-    public void setUpRemote(String url){
-        Configuration.remote = url + URL_PATH;
+    public void setUpRemote(){
+        Configuration.remote = remote + URL_PATH;
         Configuration.browserVersion = "127.0";
         Configuration.browser = "chrome";
         Configuration.timeout = 5;

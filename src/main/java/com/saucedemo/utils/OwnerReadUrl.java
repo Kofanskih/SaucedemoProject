@@ -11,6 +11,7 @@ public class OwnerReadUrl {
     }
 
     public static String ownerRemoteUrl(){
-        return ConfigFactory.create(OwnerConfig.class).remoteUrl();
+        OwnerConfig ownerConfig = ConfigFactory.create(OwnerConfig.class);
+        return ownerConfig.remoteUrl();
     }
 }
