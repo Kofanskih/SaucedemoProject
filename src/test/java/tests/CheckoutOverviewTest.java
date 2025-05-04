@@ -8,15 +8,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CheckoutOverviewTest {
+public class CheckoutOverviewTest extends BaseTest {
     private String checkoutOverviewHeader = "Checkout: Overview";
     private String productsHeader = "Products";
     private String thankYouHeader = "Thank you for your order!";
 
-    @BeforeClass
-    void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote();
-    }
+
 
     @BeforeMethod
     void preconditionMethod(){

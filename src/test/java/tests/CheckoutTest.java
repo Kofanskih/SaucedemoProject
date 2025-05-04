@@ -8,18 +8,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CheckoutTest {
+public class CheckoutTest extends BaseTest{
     private String checkoutHeader = "Checkout: Your Information";
     private String cartHeader = "Your Cart";
     private String warningFirstName = "Error: First Name is required";
     private String warningLastName = "Error: Last Name is required";
     private String warningPostalCode = "Error: Postal Code is required";
 
-
-    @BeforeClass
-    void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote();
-    }
 
     @BeforeMethod
     void preconditionMethod(){

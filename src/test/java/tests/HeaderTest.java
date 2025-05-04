@@ -9,16 +9,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class HeaderTest {
+public class HeaderTest extends BaseTest{
     private String booleanFalse = "false";
     private String booleanTrue = "true";
     private String headerSaucelabs = "Build apps users love with AI-driven insights";
     private String loginLogo = "Swag Labs";
-
-    @BeforeClass
-    void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote();
-    }
 
     @BeforeMethod
     void preconditionMethod(){

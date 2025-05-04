@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class ProductsTest {
+public class ProductsTest extends BaseTest {
     private String countOne = "1";
     private SelenideElement descendingSort = $("[value=\"za\"]");
     private String descendingOption = "Name (Z to A)";
@@ -23,11 +23,6 @@ public class ProductsTest {
     private SelenideElement priceHighToLowSort = $("[value=\"hilo\"]");
     private String priceHighToLowOption = "Price (high to low)";
 
-
-    @BeforeClass
-    void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote();
-    }
 
     @BeforeMethod
     void preconditionMethod(){

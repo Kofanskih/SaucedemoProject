@@ -9,14 +9,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CartTest {
+public class CartTest extends BaseTest{
     private String cartHeader = "Your Cart";
     private String productsHeader = "Products";
 
-    @BeforeClass
-    void preConditionClass(){
-        new ConfigurateBrowserSettings().setUpRemote();
-    }
 
     @BeforeMethod
     void preconditionMethod(){
